@@ -72,34 +72,66 @@
         </section>
 
         <!-- ANIME SHOWCASE -->
-        <section class="bg-gray-300/80 relative z-40 max-w-7xl mx-auto px-6 py-16">
-            <h3 class="text-3xl font-bold mb-8 text-center">Watch Top Animes</h3>
+        <section class="bg-gray-300/80 dark:dark:bg-black/70 relative z-40 max-w-7xl mx-auto px-6 py-16">
+            <div>
+                <h3 class="text-3xl font-bold  text-center">Watch Top Animes</h3>
+                <a class="text-center text-2xl my-8 mx-1" href="#">more></a>
+            </div>
 
             <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-                <div class="cursor-pointer bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-                    <div class="h-40 bg-gray-300 dark:bg-gray-700 rounded mb-4"></div>
-                    <h4 class="text-xl font-semibold">Demon Slayer</h4>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                        A journey of swords, demons, and determination.
-                    </p>
+
+                <!-- Card 1 -->
+                <div class="cursor-pointer bg-gray-500/35 dark:bg-gray-800 rounded-xl shadow p-4 overflow-hidden">
+
+                    <div class="h-72 bg-gray-300 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                        <img class="w-full h-full object-cover" src="assets/demon slayer.jpg" alt="Demon Slayer">
+                    </div>
+
+                    <h4 class="text-xl font-semibold mb-1">Demon Slayer</h4>
+
+
+                    <button class="w-full h-12 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition">
+                        Watch Now
+                    </button>
                 </div>
 
-                <div class="cursor-pointer bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-                    <div class="h-40 bg-gray-300 dark:bg-gray-700 rounded mb-4"></div>
-                    <h4 class="text-xl font-semibold">Naruto</h4>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                        The story of a ninja who never gave up.
-                    </p>
+                <!-- Card 2 -->
+                <div class="cursor-pointer bg-gray-500/35 dark:bg-gray-800 rounded-xl shadow p-4 overflow-hidden">
+
+                    <div class="h-72 bg-gray-300 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                        <img class="w-full h-full object-cover" src="assets/naruto.jpg" alt="Naruto">
+                    </div>
+
+                    <h4 class="text-xl font-semibold mb-1">Naruto</h4>
+
+
+                    <button class="w-full h-12 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition">
+                        Watch Now
+                    </button>
                 </div>
 
-                <div class="cursor-pointer bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-                    <div class="h-40 bg-gray-300 dark:bg-gray-700 rounded mb-4"></div>
-                    <h4 class="text-xl font-semibold">Attack on Titan</h4>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                        Humanity’s fight for survival.
-                    </p>
+                <!-- Card 3 -->
+                <div class="cursor-pointer bg-gray-500/35 dark:bg-gray-800 rounded-xl shadow p-4 overflow-hidden">
+
+                    <div class="h-72 bg-gray-300 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                        <img class="w-full h-full object-cover" src="assets/aot.jpg" alt="Attack on Titan">
+                    </div>
+
+                    <div class="flex flex-col relative flex-1">
+                        <h4 class="text-xl font-semibold mb-1">
+                            Attack on Titan
+                        </h4>
+
+
+                        <button
+                            class="w-full h-12 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition mt-auto">
+                            Watch Now
+                        </button>
+                    </div>
                 </div>
+
             </div>
+
         </section>
 
         <!-- CHARACTER HIGHLIGHT -->
@@ -109,7 +141,8 @@
 
                 <div class="grid gap-8 md:grid-cols-3">
                     <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow">
-                        <div class="h-40 bg-gray-300 dark:bg-gray-700 rounded mb-4"></div>
+                        <div class=" bg-gray-300 dark:bg-gray-700 rounded mb-4"><img class="w-full object-cover"
+                                src="assets/Tanjiro Kamado.jpg" alt=""></div>
                         <h4 class="text-xl font-semibold">Tanjiro Kamado</h4>
                         <p class="text-sm text-gray-600 dark:text-gray-400">
                             Kind-hearted demon slayer.
@@ -117,7 +150,8 @@
                     </div>
 
                     <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow">
-                        <div class="h-40 bg-gray-300 dark:bg-gray-700 rounded mb-4"></div>
+                        <div class=" bg-gray-300 dark:bg-gray-700 rounded mb-4"><img class="w-full object-cover"
+                                src="assets/Naruto Uzumaki.jpg" alt=""></div>
                         <h4 class="text-xl font-semibold">Naruto Uzumaki</h4>
                         <p class="text-sm text-gray-600 dark:text-gray-400">
                             Future Hokage of the Hidden Leaf.
@@ -125,7 +159,8 @@
                     </div>
 
                     <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow">
-                        <div class="h-40 bg-gray-300 dark:bg-gray-700 rounded mb-4"></div>
+                        <div class=" bg-gray-300 dark:bg-gray-700 rounded mb-4"><img class="w-full object-cover"
+                                src="assets/Eren Yeager.jpg" alt=""></div>
                         <h4 class="text-xl font-semibold">Eren Yeager</h4>
                         <p class="text-sm text-gray-600 dark:text-gray-400">
                             A symbol of freedom and rage.
@@ -136,7 +171,7 @@
         </section>
 
         <!-- CTA -->
-        <section class="relative z-40 py-20 text-center">
+        <!-- <section class="bg-gray-300/80 relative z-40 py-20 text-center">
             <h3 class="text-3xl font-bold mb-4">Join the AnimeVerse</h3>
             <p class="text-gray-600 dark:text-gray-400 mb-6">
                 Dive deeper into your favorite anime worlds.
@@ -144,7 +179,7 @@
             <button class="bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700">
                 Get Started
             </button>
-        </section>
+        </section> -->
 
     </main>
 
