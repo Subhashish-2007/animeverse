@@ -1,0 +1,25 @@
+{
+  "name": "animeverse",
+  "version": "1.0.0",
+  "description": "Name: Subhashish Sahu\r Roll Number: 125CS0071\r Topic: Anime Showcase Website",
+  "homepage": "https://github.com/Subhashish-2007/animeverse#readme",
+  "bugs": {
+    "url": "https://github.com/Subhashish-2007/animeverse/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Subhashish-2007/animeverse.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "script.js",
+  "scripts": {
+    "test": "vite"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18"
+  }
+}
