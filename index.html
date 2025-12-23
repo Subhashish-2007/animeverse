@@ -20,15 +20,23 @@
 <body class="bg-gray-300 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
     <!-- ================= HEADER / NAVBAR ================= -->
-    <header class="bg-orange-700 dark:bg-gray-800 shadow fixed w-full z-50">
+    <header class="bg-orange-700 dark:bg-gray-800 shadow z-50 fixed w-full ">
         <nav class="max-w-7xl mx-auto px-6  flex justify-between items-center h-14">
 
             <ul class=" md:flex space-x-6 font-medium justify-center items-center h-14">
-                <li><a href="#home" ><img class="w-12" src="asets/icon.png" alt=""></a></li>
-                <li class="h-14  text-white"><a href="#home"  class=" flex justify-center items-center   hover:text-black hover:text-5  h-14  px-3" >Home</a></li>
-                <li class="h-14  text-white"><a href="#characters"  class=" flex justify-center items-center   hover:text-black hover:text-5  h-14  px-3" >Characters</a></li>
-                <li class="h-14  text-white"><a href="#episodes"  class=" flex justify-center items-center   hover:text-black hover:text-5  h-14  px-3" >Episodes</a></li>
-                <li class="h-14  text-white"><a href="#about"  class=" flex justify-center items-center   hover:text-black hover:text-5  h-14  px-3" >About</a></li>
+                <li><a href="#home"><img class="w-12" src="assets/icon.png" alt=""></a></li>
+                <li class="h-14  text-white"><a href="#home"
+                        class=" flex justify-center items-center   hover:text-black hover:text-5  h-14  px-3">Home</a>
+                </li>
+                <li class="h-14  text-white"><a href="#characters"
+                        class=" flex justify-center items-center   hover:text-black hover:text-5  h-14  px-3">Characters</a>
+                </li>
+                <li class="h-14  text-white"><a href="#episodes"
+                        class=" flex justify-center items-center   hover:text-black hover:text-5  h-14  px-3">Episodes</a>
+                </li>
+                <li class="h-14  text-white"><a href="#about"
+                        class=" flex justify-center items-center   hover:text-black hover:text-5  h-14  px-3">About</a>
+                </li>
             </ul>
 
             <button id="themeToggle" class="border px-3 py-1 rounded hover:bg-gray-200 dark:hover:bg-gray-700">
@@ -38,15 +46,23 @@
     </header>
 
     <!-- ================= MAIN ================= -->
-    <main class="pt-24">
+    <main class="">
 
         <!-- HERO SECTION -->
-        <section id="home" class="min-h-screen flex items-center justify-center text-center px-6">
-            <div>
-                <h2 class="text-5xl font-extrabold mb-4">
+        <section id="home" class="min-h-screen flex items-center justify-center text-center">
+
+            <div class="h-screen w-screen top-14 fixed z-10 min-h-screen bg-cover bg-center   flex items-center justify-center text-center  "
+                style="
+            background-image: url('/assets/bg1.jpg');
+            opacity: 0.5;
+            ">
+                <!-- <img src="/assets/bg1.jpg" class="w-full" alt=""> -->
+            </div>
+            <div class="bg-gray-500/80 dark:bg-black/70 w-screen h-screen pt-64 z-40">
+                <h2 class="text-5xl  font-extrabold mb-4">
                     Enter the <span class="text-red-600">AnimeVerse</span>
                 </h2>
-                <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+                <p class="text-lg text-black dark:text-gray-400 mb-6">
                     Explore iconic anime worlds, characters, and stories.
                 </p>
                 <button class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition">
@@ -56,11 +72,11 @@
         </section>
 
         <!-- ANIME SHOWCASE -->
-        <section class="max-w-7xl mx-auto px-6 py-16">
-            <h3 class="text-3xl font-bold mb-8 text-center">Featured Anime</h3>
+        <section class="bg-gray-300/80 relative z-40 max-w-7xl mx-auto px-6 py-16">
+            <h3 class="text-3xl font-bold mb-8 text-center">Watch Top Animes</h3>
 
             <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+                <div class="cursor-pointer bg-white dark:bg-gray-800 rounded-lg shadow p-4">
                     <div class="h-40 bg-gray-300 dark:bg-gray-700 rounded mb-4"></div>
                     <h4 class="text-xl font-semibold">Demon Slayer</h4>
                     <p class="text-sm text-gray-600 dark:text-gray-400">
@@ -68,7 +84,7 @@
                     </p>
                 </div>
 
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+                <div class="cursor-pointer bg-white dark:bg-gray-800 rounded-lg shadow p-4">
                     <div class="h-40 bg-gray-300 dark:bg-gray-700 rounded mb-4"></div>
                     <h4 class="text-xl font-semibold">Naruto</h4>
                     <p class="text-sm text-gray-600 dark:text-gray-400">
@@ -76,7 +92,7 @@
                     </p>
                 </div>
 
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+                <div class="cursor-pointer bg-white dark:bg-gray-800 rounded-lg shadow p-4">
                     <div class="h-40 bg-gray-300 dark:bg-gray-700 rounded mb-4"></div>
                     <h4 class="text-xl font-semibold">Attack on Titan</h4>
                     <p class="text-sm text-gray-600 dark:text-gray-400">
@@ -87,7 +103,7 @@
         </section>
 
         <!-- CHARACTER HIGHLIGHT -->
-        <section id="characters" class="bg-black dark:bg-gray-800 py-16">
+        <section id="characters" class="relative z-40 bg-gray-500/80 dark:bg-gray-800 py-16">
             <div class="max-w-6xl mx-auto px-6 text-center">
                 <h3 class="text-3xl font-bold mb-8 text-amber-50">Popular Characters</h3>
 
@@ -120,7 +136,7 @@
         </section>
 
         <!-- CTA -->
-        <section class="py-20 text-center">
+        <section class="relative z-40 py-20 text-center">
             <h3 class="text-3xl font-bold mb-4">Join the AnimeVerse</h3>
             <p class="text-gray-600 dark:text-gray-400 mb-6">
                 Dive deeper into your favorite anime worlds.
@@ -133,8 +149,8 @@
     </main>
 
     <!-- ================= FOOTER ================= -->
-    <footer class="bg-gray-900 text-gray-300 py-6 text-center">
-        <p>© 2025 AnimeVerse. Built with ❤️ by You.</p>
+    <footer class="relative z-40 bg-gray-900 text-gray-300 py-6 text-center">
+        <p>© 2025 AnimeVerse.</p>
     </footer>
 
     <script src="script.js"></script>
