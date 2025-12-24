@@ -26,19 +26,19 @@
             <ul class=" md:flex space-x-6 font-medium justify-center items-center h-14">
                 <li><a href="mainpage.html"><img class="w-12" src="assets/icon.png" alt=""></a></li>
                 <li class="h-14  text-white"><a href="#home"
-                        class=" flex justify-center items-center   hover:text-black hover:text-5  h-14  px-3">Home</a>
+                        class=" flex justify-center items-center   hover:text-black hsover:text-5  h-14  px-3">Home</a>
                 </li>
                 <li class="h-14  text-white"><a href="#characters"
-                        class=" flex justify-center items-center   hover:text-black hover:text-5  h-14  px-3">Characters</a>
+                        class=" flex justify-center items-center   hover:text-black hsover:text-5  h-14  px-3">Characters</a>
                 </li>
                 <li class="h-14  text-white"><a href="#fantalks"
-                        class=" flex justify-center items-center   hover:text-black hover:text-5  h-14  px-3">FanTalks</a>
+                        class=" flex justify-center items-center   hover:text-black hsover:text-5  h-14  px-3">FanTalks</a>
                 </li>
                 <li class="h-14  text-white"><a href="#about"
-                    class=" flex justify-center items-center   hover:text-black hsover:text-5  h-14  px-3">Anime</a>
+                        class=" flex justify-center items-center   hover:text-black hsover:text-5  h-14  px-3">Anime</a>
                 </li>
                 <li class="h-14  text-white"><a href="#about"
-                        class=" flex justify-center items-center   hover:text-black hover:text-5  h-14  px-3">ReadManga</a>
+                        class=" flex justify-center items-center   hover:text-black hsover:text-5  h-14  px-3">ReadManga</a>
                 </li>
             </ul>
 
@@ -50,14 +50,49 @@
 
     <!-- ================= MAIN ================= -->
     <main class="">
-        <div class="h-screen w-screen top-14 fixed z-10 min-h-screen bg-cover bg-center   flex items-center justify-center text-center  "
+
+
+        <!-- <section id="home" class=" min-w-screen min-h-screen flex items-center justify-center text-center px-6"> -->
+        <section id="home" class="relative min-w-screen min-h-screen flex items-center justify-center text-center ">
+
+
+            <!-- Background Image -->
+            <!-- <div class="absolute z-20 top-14 h-full w-full bg-cover bg-center" style="background-image: url('/assets/bg3.png');">
+                <div class="absolute top-0 bottom-0 left-0 right-0  bg-black/60"></div>
+            </div> -->
+            <div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image: url('/assets/bg3.png');">
+                <div class="absolute inset-0 bg-black/60"></div>
+            </div>
+
+            <!-- Content -->
+            <!-- <div class="absolute  z-30 bg-white/55 max-w-3xl"> -->
+            <div class="relative z-10 bg-white/55 max-w-3xl p-8 rounded-xl">
+                <h1 class="text-4xl sm:text-6xl font-extrabold text-white mb-4">
+                    Enter the <span class="text-red-500">AnimeVerse</span>
+                </h1>
+
+                <p class="text-lg sm:text-xl text-gray-200 mb-8">
+                    Explore legendary anime worlds, unforgettable characters,
+                    and stories that transcend reality.
+                </p>
+
+                <button class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg text-lg transition">
+                    Explore Now
+                </button>
+            </div>
+
+        </section>
+
+
+        <!-- <div class="h-screen w-screen top-14 fixed z-0 min-h-screen bg-cover bg-center   flex items-center justify-center text-center  "
             style="
             background-image: url('/assets/bg1.jpg');
-            opacity: 0.5;
+            opacity: 0.1;
             ">
-        </div>
+        </div> -->
+
         <!-- ANIME SHOWCASE -->
-        <section class="bg-gray-300/80 dark:dark:bg-black/70 relative z-40 max-w-7xl mx-auto px-6 py-16">
+        <section class="bg-gray-300/80 dark:bg-black/70 relative z-40 max-w-7xl mx-auto px-6 py-16">
             <div class="max-w-6xl mx-auto px-6 text-center">
 
                 <!-- <div class="flex flex-col justify-center items-center mb-16"> -->
@@ -69,62 +104,14 @@
                 </button>
                 <!-- </div> -->
 
-                <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
 
-                    <!-- Card 1 -->
-                    <div class="cursor-pointer bg-gray-500/35 dark:bg-gray-800 rounded-xl shadow p-4 overflow-hidden">
-
-                        <div class="h-72 bg-gray-300 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
-                            <img class="w-full h-full object-cover" src="assets/demon slayer.jpg" alt="Demon Slayer">
-                        </div>
-
-                        <h4 class="text-xl font-semibold mb-1">Demon Slayer</h4>
-
-
-                        <button class="w-full h-12 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition">
-                            Watch Now
-                        </button>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="cursor-pointer bg-gray-500/35 dark:bg-gray-800 rounded-xl shadow p-4 overflow-hidden">
-
-                        <div class="h-72 bg-gray-300 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
-                            <img class="w-full h-full object-cover" src="assets/naruto.jpg" alt="Naruto">
-                        </div>
-
-                        <h4 class="text-xl font-semibold mb-1">Naruto</h4>
-
-
-                        <button class="w-full h-12 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition">
-                            Watch Now
-                        </button>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="cursor-pointer bg-gray-500/35 dark:bg-gray-800 rounded-xl shadow p-4 overflow-hidden">
-
-                        <div class="h-72 bg-gray-300 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
-                            <img class="w-full h-full object-cover" src="assets/aot.jpg" alt="Attack on Titan">
-                        </div>
-
-                        <div class="flex flex-col relative flex-1">
-                            <h4 class="text-xl font-semibold mb-1">
-                                Attack on Titan
-                            </h4>
-
-
-                            <button
-                                class="w-full h-12 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition mt-auto">
-                                Watch Now
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
+                <div id="animeGrid" class=" grey grid gap-6 sm:grid-cols-1 z-50 md:grid-cols-3"></div>
             </div>
 
         </section>
+
+
+
 
 
 
@@ -139,66 +126,32 @@
                     Explore Now
                 </button>
 
-                <div class="grid gap-8 md:grid-cols-3">
-                    <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow">
-                        <div class=" bg-gray-300 dark:bg-gray-700 rounded mb-4"><img class="w-full object-cover"
-                                src="assets/Tanjiro Kamado.jpg" alt=""></div>
-                        <h4 class="text-xl font-semibold">Tanjiro Kamado</h4>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">
-                            Kind-hearted demon slayer.
-                        </p>
-                    </div>
 
-                    <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow">
-                        <div class=" bg-gray-300 dark:bg-gray-700 rounded mb-4"><img class="w-full object-cover"
-                                src="assets/Naruto Uzumaki.jpg" alt=""></div>
-                        <h4 class="text-xl font-semibold">Naruto Uzumaki</h4>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">
-                            Future Hokage of the Hidden Leaf.
-                        </p>
-                    </div>
+                <div id="characterGrid" class="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
 
-                    <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow">
-                        <div class=" bg-gray-300 dark:bg-gray-700 rounded mb-4"><img class="w-full object-cover"
-                                src="assets/Eren Yeager.jpg" alt=""></div>
-                        <h4 class="text-xl font-semibold">Eren Yeager</h4>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">
-                            A symbol of freedom and rage.
-                        </p>
-                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA -->
-        <!-- <section class="bg-gray-300/80 relative z-40 py-20 text-center">
-            <h3 class="text-3xl font-bold mb-4">Join the AnimeVerse</h3>
-            <p class="text-gray-600 dark:text-gray-400 mb-6">
-                Dive deeper into your favorite anime worlds.
-            </p>
-            <button class="bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700">
-                Get Started
-            </button>
-        </section> -->
-                <!-- HERO SECTION -->
-        <section id="home" class="min-h-screen flex items-center justify-center text-center">
 
+        <!-- HERO SECTION -->
+        <section id="fantalks" class="min-h-screen flex z-40 items-center justify-center text-center">
 
             <div class="bg-gray-500/80 dark:bg-black/70 w-screen h-screen pt-64 z-40">
                 <h2 class="text-5xl  font-extrabold mb-4">
-                   Explore <span class="text-red-600">FanTalks</span>
+                    Explore <span class="text-red-600">FanTalks</span>
                 </h2>
-                <p class="text-lg text-black dark:text-gray-400 mb-6">
+                <p class="text-lg text-black h-4 dark:text-gray-400 mb-6">
                     Explore and talk about your fevorite anime worlds, characters, and stories.
                 </p>
                 <button class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition">
                     Explore Now
                 </button>
             </div>
-            <div class="bg-black block h-dvh w-1"></div>
+            <div class=" bg-black block h-dvh w-1"></div>
             <div class="bg-gray-500/80 dark:bg-black/70 w-screen h-screen pt-64 z-40">
                 <h2 class="text-5xl  font-extrabold mb-4">
-                   Explore <span class="text-red-600">ReadManga</span>
+                    Explore <span class="text-red-600">ReadManga</span>
                 </h2>
                 <p class="text-lg text-black dark:text-gray-400 mb-6">
                     Explore and talk about your fevorite anime worlds, characters, and stories.
@@ -216,7 +169,16 @@
         <p>© 2025 AnimeVerse.</p>
     </footer>
 
+    <div id="animeModal" class="fixed inset-0 hidden z-50 bg-black/70 flex items-center justify-center">
+        <div class="bg-white p-10">
+            <button onclick="document.getElementById('animeModal').classList.add('hidden')">
+                Close
+            </button>
+        </div>
+    </div>
     <script src="script.js"></script>
+
+
 </body>
 
 </html>
