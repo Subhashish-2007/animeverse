@@ -1,11 +1,20 @@
 /* ================= THEME TOGGLE ================= */
 const toggleBtn = document.getElementById("themeToggle");
 const html = document.documentElement;
+const gridBg = document.getElementById("gridBg");
 
 toggleBtn.addEventListener("click", () => {
   html.classList.toggle("dark");
+
+  // change icon
   toggleBtn.textContent = html.classList.contains("dark") ? "☀️" : "🌙";
+
+  // change grid background image
+  gridBg.style.backgroundImage = html.classList.contains("dark")
+    ? "url('assets/grid-bg-dark.jpg')"
+    : "url('assets/grid-bg-light.jpg')";
 });
+
 
 
 /* ================= ANIME SHOWCASE ================= */
@@ -23,7 +32,7 @@ fetch("https://api.jikan.moe/v4/top/anime?limit=3")
 
     animeGrid.innerHTML = animeList.map((anime, index) => `
       <div 
-        class="anime-card cursor-pointer flex gap-6 bg-yellow-500/35 dark:bg-gray-800 
+        class="anime-card cursor-pointer mx-10 flex gap-6 bg-yellow-500/35 dark:bg-gray-800 
                rounded-xl p-4
                transition-all duration-300
                hover:shadow-[0_25px_60px_rgba(0,0,0,0.65)]
@@ -32,14 +41,14 @@ fetch("https://api.jikan.moe/v4/top/anime?limit=3")
 
         <!-- LEFT IMAGE -->
         <div class="w-32 shrink-0">
-          <div class="aspect-[2/3] overflow-hidden rounded-lg">
+          <div class="aspect-2/3 overflow-hidden rounded-lg">
             <img src="${anime.images.jpg.image_url}"
                  class="w-full h-full object-cover">
           </div>
         </div>
 
         <!-- RIGHT CONTENT -->
-        <div>
+        <div class= "flex flex-col">
           <span class="inline-block mb-2 border px-3 py-1 text-xs">
             Rank #${anime.rank}
           </span>
@@ -147,34 +156,111 @@ modal.addEventListener("click", e => {
 
 
 /* ================= CHARACTER SECTION (UNCHANGED CSS) ================= */
-setTimeout(() => {
-  fetch("https://api.jikan.moe/v4/top/characters?limit=9")
-    .then(res => res.json())
-    .then(data => {
-      characterGrid.innerHTML = "";
-      data.data.forEach(character => {
-        characterGrid.innerHTML += `
-          <div class="bg-yellow-500/35 dark:bg-gray-800 h-full w-full max-w-[16rem] mx-auto border-2
-                      border-orange-300 rounded-xl p-4
-                      transition-all duration-300
-                      hover:shadow-2xl hover:-translate-y-1">
+document.addEventListener("DOMContentLoaded", () => {
 
-            <div class="aspect-[2/3] overflow-hidden rounded-lg mb-4">
-              <img src="${character.images.jpg.image_url}"
-                   class="w-full h-full object-cover">
+  const characterTrack = document.getElementById("characterTrack");
+
+  if (!characterTrack) {
+    console.error("characterTrack not found in DOM");
+    return;
+  }
+
+  setTimeout(() => {
+    fetch("https://api.jikan.moe/v4/top/characters?limit=5")
+      .then(res => res.json())
+      .then(data => {
+        characterTrack.innerHTML = "";
+
+        const characters = data.data.slice(0, 5);
+
+        // duplicate for infinite loop
+        [...characters, ...characters].forEach((character, index) => {
+          const rank = (index % 5) + 1; // 1–5 repeating
+
+          characterTrack.innerHTML += `
+            <div class="relative bg-yellow-500/35 dark:bg-gray-800
+                        min-w-[16rem] max-w-[16rem]
+                        border-2 border-orange-300
+                        rounded-xl p-4
+                        transition-all duration-300
+                        hover:scale-105">
+
+              <!-- RANK BADGE -->
+              <span class="absolute top-2 left-2
+                           bg-red-600 text-white
+                           text-sm font-bold
+                           px-3 py-1 rounded-full">
+                #${rank}
+              </span>
+
+              <div class="aspect-[2/3] overflow-hidden rounded-lg mb-4">
+                <img src="${character.images.jpg.image_url}"
+                     class="w-full h-full object-cover">
+              </div>
+
+              <h4 class="text-xl font-semibold">${character.name}</h4>
+
+              <p class="text-sm text-gray-600 dark:text-gray-400">
+                ❤️ Favorites: ${character.favorites.toLocaleString()}
+              </p>
             </div>
-
-            <h4 class="text-xl font-semibold">${character.name}</h4>
-
-            <p class="text-sm text-gray-600 dark:text-gray-400">
-              ❤️ Favorites: ${character.favorites.toLocaleString()}
-            </p>
-          </div>
-        `;
+          `;
+        });
+      })
+      .catch(err => {
+        console.error("Character API error:", err);
+        characterTrack.innerHTML =
+          "<p class='text-white'>Characters temporarily unavailable.</p>";
       });
-    })
-    .catch(err => {
-      console.error("Character API error:", err);
-      characterGrid.innerHTML = "<p>Characters temporarily unavailable.</p>";
-    });
-}, 1200);
+  }, 1200);
+
+});
+
+
+const images = [
+  "assets/bg1.jpg",
+  "assets/bg2.jpg",
+  "assets/bg3.png"
+];
+
+let index = 0;
+let showingA = true;
+
+const bgA = document.getElementById("bgA");
+const bgB = document.getElementById("bgB");
+
+bgA.style.backgroundImage = `url(${images[0]})`;
+
+setInterval(() => {
+  const next = images[(index + 1) % images.length];
+
+  if (showingA) {
+    bgB.style.backgroundImage = `url(${next})`;
+    bgB.classList.remove("opacity-0");
+    bgA.classList.add("opacity-0");
+  } else {
+    bgA.style.backgroundImage = `url(${next})`;
+    bgA.classList.remove("opacity-0");
+    bgB.classList.add("opacity-0");
+  }
+
+  showingA = !showingA;
+  index++;
+}, 6000);
+
+
+document.getElementById("heroExploreBtn").addEventListener("click", () => {
+  window.scrollBy({
+    top: window.innerHeight,
+    behavior: "smooth"
+  });
+});
+
+
+/* ================= MOBILE MENU TOGGLE ================= */
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuBtn.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
+});
