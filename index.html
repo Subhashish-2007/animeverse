@@ -2,239 +2,364 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AnimeVerse</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AnimeVerse</title>
 
-    <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Tailwind Dark Mode Config -->
-    <script>
-        tailwind.config = {
-            darkMode: 'class'
-        }
-    </script>
-    <style>
-        @keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
+  <!-- Tailwind Dark Mode Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+  <style>
+    /* ================= HORIZONTAL SCROLL ================= */
+    @keyframes scroll-left {
+      from {
+        transform: translateX(0);
+      }
 
-.animate-marquee {
-  animation: marquee 30s linear infinite;
-}
+      to {
+        transform: translateX(-50%);
+      }
+    }
 
-    </style>
-    
+    .animate-scroll {
+      animation: scroll-left 100s linear infinite;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-marquee {
+      animation: marquee 30s linear infinite;
+    }
+
+    /* ================= TRACK ANIMATIONS ================= */
+    @keyframes track-right {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes track-left {
+      from {
+        transform: translateX(-50%);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes track-up {
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(-50%);
+      }
+    }
+
+    /* ================= VERTICAL SCROLL ================= */
+    @keyframes verticalScroll {
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(-50%);
+      }
+    }
+
+    .animate-vertical {
+      animation: verticalScroll 35s linear infinite;
+    }
+
+    /* ================= FADE IN ================= */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.96);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+
+
 </head>
 
 <body class="bg-gray-300 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
-    <!-- ================= HEADER / NAVBAR ================= -->
-    <header class="bg-orange-700 dark:bg-gray-800 shadow z-50 fixed w-full">
-        <nav class="max-w-7xl mx-auto px-6 flex justify-between items-center h-14">
+  <!-- ================= HEADER / NAVBAR ================= -->
+  <header class="bg-orange-700 dark:bg-gray-800 shadow z-50 fixed w-full">
+    <nav class="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
 
-            <!-- LEFT: Logo -->
-            <a href="mainpage.html">
-                <img class="w-12" src="assets/icon.png" alt="AnimeVerse">
-            </a>
+      <!-- LEFT: Logo -->
+      <a class="bg-white" href="mainpage.html">
+        <img class="w-14" src="assets/icon.png" alt="AnimeVerse">
+      </a>
 
-            <!-- DESKTOP MENU -->
-            <ul class="hidden md:flex space-x-10 font-medium items-center">
-                <li><a href="#home" class="text-white hover:text-black dark:hover:text-orange-700">Home</a></li>
-                <li><a href="#characters" class="text-white hover:text-black dark:hover:text-orange-700">Characters</a>
-                </li>
-                <li><a href="#fantalks" class="text-white hover:text-black dark:hover:text-orange-700">FanTalks</a></li>
-                <li><a href="#about" class="text-white hover:text-black dark:hover:text-orange-700">Anime</a></li>
-                <li><a href="#about" class="text-white hover:text-black dark:hover:text-orange-700">ReadManga</a></li>
-            </ul>
+      <!-- DESKTOP MENU -->
+      <ul class="hidden md:flex space-x-10 font-medium items-center">
+        <li><a href="#home" class="text-white hover:text-black dark:hover:text-orange-700">Home</a></li>
+        <li><a href="#characters" class="text-white hover:text-black dark:hover:text-orange-700">Characters</a>
+        </li>
+        <li><a href="#fantalks" class="text-white hover:text-black dark:hover:text-orange-700">FanTalks</a></li>
+        <li><a href="#about" class="text-white hover:text-black dark:hover:text-orange-700">Anime</a></li>
+        <li><a href="#about" class="text-white hover:text-black dark:hover:text-orange-700">ReadManga</a></li>
+      </ul>
 
-            <!-- RIGHT CONTROLS -->
-            <div class="flex items-center gap-3">
-                <!-- Mobile Menu Button -->
-                <button id="menuBtn" class="md:hidden text-3xl text-white">
-                    ☰
-                </button>
+      <!-- RIGHT CONTROLS -->
+      <div class="flex items-center gap-3">
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" class="md:hidden text-3xl text-white">
+          ☰
+        </button>
 
 
-            </div>
-        </nav>
+      </div>
+    </nav>
 
-        <!-- MOBILE MENU -->
-        <div id="mobileMenu" class="hidden md:hidden bg-orange-700 dark:bg-gray-800 px-6 pb-4">
-            <ul class="flex flex-col gap-4 text-white font-medium border-amber-900">
-                <li><a href="#home" class="block">Home</a></li>
-                <li><a href="#characters" class="block">Characters</a></li>
-                <li><a href="#fantalks" class="block">FanTalks</a></li>
-                <li><a href="#about" class="block">Anime</a></li>
-                <li><a href="#about" class="block">ReadManga</a></li>
-            </ul>
-        </div>
-    </header>
+    <div id="mobileMenu"
+      class="hidden md:hidden bg-orange-700 dark:bg-gray-800 px-6 pb-4 border-t border-orange-800 dark:border-gray-700">
+      <ul class="flex flex-col gap-2 text-white font-medium text-center items-center">
+        <li class="w-full">
+          <a href="#home" class="block w-full px-3 py-2 rounded transition
+                          hover:bg-orange-800 dark:hover:bg-gray-700">
+            Home
+          </a>
+        </li>
+        <li class="w-full">
+          <a href="#characters" class="block w-full px-3 py-2 rounded transition
+                          hover:bg-orange-800 dark:hover:bg-gray-700">
+            Characters
+          </a>
+        </li>
+        <li class="w-full">
+          <a href="#fantalks" class="block w-full px-3 py-2 rounded transition
+                          hover:bg-orange-800 dark:hover:bg-gray-700">
+            FanTalks
+          </a>
+        </li>
+        <li class="w-full">
+          <a href="#anime.html" class="block w-full px-3 py-2 rounded transition
+                          hover:bg-orange-800 dark:hover:bg-gray-700">
+            Anime
+          </a>
+        </li>
+        <li class="w-full">
+          <a href="#about" class="block w-full px-3 py-2 rounded transition
+                          hover:bg-orange-800 dark:hover:bg-gray-700">
+            ReadManga
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
 
-    <!-- ================= MAIN ================= -->
-    <main class="">
+  <!-- ================= MAIN ================= -->
+  <main class="">
 
-        <!-- ================= FRONT PAGE ================= -->
-        <section>
-            <section id="home"
-                class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+    <!-- ================= FRONT PAGE ================= -->
+    <section>
+      <section class="relative z-10 ">
+        <section id="home" class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
 
-                <!-- Background layers -->
-                <div id="bgA" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"></div>
-                <div id="bgB" class="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-1000">
-                </div>
+          <div id="heroBg" class="absolute inset-0 z-0"></div>
 
-                <!-- Overlay (fixed, click-through) -->
-                <div class="absolute inset-0 z-0 pointer-events-none
-                bg-black/40 dark:bg-black/75
-                transition-colors duration-500"></div>
+          <div class="absolute inset-0 z-10 pointer-events-none">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60"></div>
+          </div>
 
-                <!-- Content -->
-                <div class="relative z-10 bg-white/20 backdrop-blur-md max-w-3xl p-10 rounded-2xl shadow-xl">
-                    <h1 class="text-4xl sm:text-6xl font-extrabold text-white mb-4">
-                        Enter the <span class="text-red-500">AnimeVerse</span>
-                    </h1>
 
-                    <p class="text-lg sm:text-xl text-gray-200 mb-8">
-                        Explore legendary anime worlds, unforgettable characters,
-                        and stories that transcend reality.
-                    </p>
 
-                    <button id="heroExploreBtn"
-                        class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg text-lg transition">
-                        Explore Now
-                    </button>
-                </div>
+          <!-- Content -->
+          <div class="relative z-10 bg-white/20 backdrop-blur-md max-w-3xl p-10 shadow-xl">
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-white mb-4">
+              Enter the <span class="text-red-500">AnimeVerse</span>
+            </h1>
 
-            </section>
+            <p class="text-lg sm:text-xl text-gray-200 mb-8">
+              Explore legendary anime worlds, unforgettable characters,
+              and stories that transcend reality.
+            </p>
+
+            <button id="heroExploreBtn" class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg transition">
+              Explore
+            </button>
+          </div>
+
         </section>
+      </section>
 
 
-        <section class="relative" id="secondSection">
-            <!-- ================= FIXED GRID BACKGROUND (AFTER HERO) ================= -->
-            <div class="absolute inset-0">
-                <div id="gridBg" class="absolute inset-0 bg-repeat bg-center" style="
+
+      <section class="relative" id="secondSection">
+        <!-- ================= FIXED GRID BACKGROUND (AFTER HERO) ================= -->
+        <div class="absolute inset-0">
+          <div id="gridBg" class="absolute inset-0 bg-repeat bg-center" style="
                             background-image: url('assets/grid-bg-light.jpg');
                             background-size:1400px 800px ;
     ">
-                </div>
+          </div>
+        </div>
+        <!-- ================= ANIME SHOWCASE ================= -->
+        <section class="relative z-40 min-w-screen mx-auto py-16 bg-gray-500/70 dark:bg-gray-800/70">
+
+          <div class="min-w-screen mx-auto px-6 text-center">
+            <h2 class="text-5xl font-extrabold mb-4">
+              Explore <span class="text-red-600">More Anime</span>
+            </h2>
+
+            <button class="bg-red-600 text-white px-6 py-3 mb-16 hover:bg-red-700 transition">
+              Explore Now
+            </button>
+
+            <!-- VERTICAL SCROLL VIEWPORT -->
+            <div class="relative overflow-hidden hidden lg:block" style="height: 75vh;">
+              <div id="animeTrack" class="grid grid-cols-4 gap-6 place-items-center animate-vertical">
+              </div>
             </div>
 
-            <!-- ================= ANIME SHOWCASE ================= -->
-            <section class="relative z-40 min-w-screen mx-auto  py-16
-                   bg-gray-500/70">
 
-                <div class="min-w-screen mx-auto px-6 text-center">
+            <!-- NORMAL GRID (mobile + tablet) -->
+            <div id="animeGrid" class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 place-items-center lg:hidden ">
+            </div>
 
-                    <h2 class="text-5xl font-extrabold mb-4">
-                        Explore <span class="text-red-600">More Anime</span>
-                    </h2>
-
-                    <button class="bg-red-600 text-white px-6 py-3 rounded-lg mb-16 hover:bg-red-700 transition">
-                        Explore Now
-                    </button>
-
-                    <div id="animeGrid" class="grid gap-6 sm:grid-cols-1 md:grid-cols-3"></div>
-                </div>
-            </section>
-
-            <!-- ================= CHARACTER HIGHLIGHT ================= -->
-<section id="characters" class="relative z-40 py-16 bg-gray-500/70 dark:bg-gray-800/70">
-
-  <div class="max-w-6xl mx-auto px-6 text-center overflow-hidden">
-    <h2 class="text-5xl font-extrabold mb-4">
-      Explore <span class="text-red-600">Popular Characters</span>
-    </h2>
-
-    <button class="bg-red-600 text-white px-6 py-3 mb-16 rounded-lg hover:bg-red-700 transition">
-      Explore Now
-    </button>
-
-    <!-- INFINITE SCROLL CONTAINER -->
-    <div class="relative overflow-hidden">
-      <div
-        id="characterTrack"
-        class="flex gap-8 w-max animate-marquee"
-      >
-        <!-- cards injected by JS (duplicated in JS) -->
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-            <!-- ================= FANTALKS & READMANGA ================= -->
-            <section id="fantalks"
-                class="min-h-screen flex items-center relative justify-center text-center bg-gray-500/70">
-
-                <!-- FanTalks -->
-                <div class="w-screen h-screen pt-64
-                       bg-transparent">
-
-                    <h2 class="text-5xl font-extrabold mb-4">
-                        Explore <span class="text-red-600">FanTalks</span>
-                    </h2>
-                    <p class="text-lg text-black dark:text-gray-400 mb-6">
-                        Explore and talk about your favorite anime worlds, characters, and stories.
-                    </p>
-                    <button class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition">
-                        Explore Now
-                    </button>
-                </div>
-
-                <div class="bg-black h-dvh w-1"></div>
-
-                <!-- ReadManga -->
-                <div class="w-screen h-screen pt-64
-                       ">
-
-                    <h2 class="text-5xl font-extrabold mb-4">
-                        Explore <span class="text-red-600">ReadManga</span>
-                    </h2>
-                    <p class="text-lg text-black dark:text-gray-400 mb-6">
-                        Explore and enjoy manga from your favorite anime universes.
-                    </p>
-                    <button class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition">
-                        Explore Now
-                    </button>
-                </div>
-            </section>
+          </div>
         </section>
 
-    </main>
 
-    <!-- ================= FOOTER ================= -->
-    <footer class="relative z-40 bg-gray-900 text-gray-300 py-6 text-center">
-        <p>© 2025 AnimeVerse.</p>
-    </footer>
+        <!-- ================= CHARACTER HIGHLIGHT ================= -->
+        <section id="characters" class="relative z-40 py-16 bg-gray-500/70 dark:bg-gray-800/70">
 
-    <!-- ================= ANIME MODAL (RESTORED) ================= -->
-    <div id="animeModal" class="fixed inset-0 hidden z-50 bg-black/70 flex items-center justify-center">
-        <div class="bg-white p-10 rounded-lg">
-            <button onclick="document.getElementById('animeModal').classList.add('hidden')">
-                Close
+          <div class="max-w-6xl mx-auto px-6 text-center overflow-hidden">
+            <h2 class="text-5xl font-extrabold mb-4">
+              Explore <span class="text-red-600">Popular Characters</span>
+            </h2>
+
+            <button class="bg-red-600 text-white px-6 py-3 mb-16  hover:bg-red-700 transition">
+              Explore Now
             </button>
-        </div>
+
+            <!-- INFINITE SCROLL CONTAINER -->
+            <div class="relative overflow-hidden">
+
+              <!-- LEFT FADE -->
+              <div class="pointer-events-none absolute left-0 top-0 h-full w-28 z-50
+                                        bg-gradient-to-r
+                                        from-gray-500/90 dark:from-gray-900/90
+                                        via-gray-500/60 dark:via-gray-900/60
+                                        to-transparent">
+              </div>
+
+              <!-- RIGHT FADE -->
+              <div class="pointer-events-none absolute right-0 top-0 h-full w-28 z-50
+                                        bg-gradient-to-l
+                                        from-gray-500/90 dark:from-gray-900/90
+                                        via-gray-500/60 dark:via-gray-900/60
+                                        to-transparent">
+              </div>
+
+              <!-- MOVING TRACK -->
+              <div id="characterTrack" class="flex gap-8 w-max animate-marquee">
+              </div>
+
+            </div>
+
+
+          </div>
+        </section>
+
+
+
+        <!-- ================= FANTALKS & READMANGA ================= -->
+        <section id="fantalks"
+          class="min-h-screen flex items-center relative justify-center text-center bg-gray-500/70 dark:bg-gray-800/70">
+
+          <!-- FanTalks -->
+          <div class="w-screen h-screen pt-64
+                       bg-transparent">
+
+            <h2 class="text-5xl font-extrabold mb-4">
+              Explore <span class="text-red-600">FanTalks</span>
+            </h2>
+            <p class="text-lg text-black dark:text-gray-400 mb-6">
+              Explore and talk about your favorite anime worlds, characters, and stories.
+            </p>
+            <button class="bg-red-600 text-white px-6 py-3  hover:bg-red-700 transition">
+              Explore Now
+            </button>
+          </div>
+
+          <div class="bg-black h-dvh w-1"></div>
+
+          <!-- ReadManga -->
+          <div class="w-screen h-screen pt-64
+                       ">
+
+            <h2 class="text-5xl font-extrabold mb-4">
+              Explore <span class="text-red-600">ReadManga</span>
+            </h2>
+            <p class="text-lg text-black dark:text-gray-400 mb-6">
+              Explore and enjoy manga from your favorite anime universes.
+            </p>
+            <button class="bg-red-600 text-white px-6 py-3  hover:bg-red-700 transition">
+              Explore Now
+            </button>
+          </div>
+        </section>
+      </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="relative z-40 bg-gray-900 text-gray-300 py-6 text-center">
+    <p>© 2025 AnimeVerse.</p>
+  </footer>
+
+  <!-- ================= ANIME MODAL (RESTORED) ================= -->
+  <div id="animeModal" class="fixed inset-0 hidden z-50 bg-black/70 flex items-center justify-center">
+    <div class="bg-white p-10 ">
+      <button onclick="document.getElementById('animeModal').classList.add('hidden')">
+        Close
+      </button>
     </div>
-    <!-- Theme Toggle -->
-    <button id="themeToggle" class="fixed bottom-6 right-6 z-50
+  </div>
+  <!-- Theme Toggle -->
+  <button id="themeToggle" class="fixed bottom-6 right-6 z-50
          bg-gray-900 text-white
          dark:bg-gray-100 dark:text-black
          w-14 h-14 rounded-full shadow-lg
          flex items-center justify-center text-2xl
          hover:scale-110 transition-transform">
-        🌙
-    </button>
+    🌙
+  </button>
 
-    <script src="script.js"></script>
+  <script src="mainpageBg.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
