@@ -4,134 +4,121 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AnimeVerse</title>
+    <title>AnimeVerse | Anime</title>
 
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Tailwind Dark Mode Config -->
+    <!-- ✅ MERGED TAILWIND CONFIG (DARK MODE + SCROLLBAR) -->
     <script>
         tailwind.config = {
-            darkMode: 'class'
-        }
+            darkMode: 'class',
+            plugins: [
+                function ({ addUtilities }) {
+                    addUtilities({
+                        ".scrollbar-thin": {
+                            "scrollbar-width": "thin",
+                        },
+                        ".scrollbar-thumb-orange-500::-webkit-scrollbar-thumb": {
+                            "background-color": "#f97316",
+                            "border-radius": "9999px",
+                        },
+                        ".scrollbar-thumb-orange-400::-webkit-scrollbar-thumb": {
+                            "background-color": "#fb923c",
+                        },
+                        ".scrollbar-track-transparent::-webkit-scrollbar-track": {
+                            "background": "transparent",
+                        },
+                        ".scrollbar-thin::-webkit-scrollbar": {
+                            height: "8px",
+                        }
+                    });
+                }
+            ]
+        };
     </script>
 </head>
 
-<body class="bg-gray-300 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
-
-    <!-- ================= HEADER / NAVBAR ================= -->
-  <header class="bg-orange-700 dark:bg-gray-800 shadow z-50 fixed w-full">
-    <nav class="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
-
-      <!-- LEFT: Logo -->
-      <a class="bg-white" href="mainpage.html">
-        <img class="w-14" src="assets/icon.png" alt="AnimeVerse">
-      </a>
-
-      <!-- DESKTOP MENU -->
-      <ul class="hidden md:flex space-x-10 font-medium items-center">
-        <li><a href="#home" class="text-white hover:text-black dark:hover:text-orange-700">Home</a></li>
-        <li><a href="#characters" class="text-white hover:text-black dark:hover:text-orange-700">Characters</a>
-        </li>
-        <li><a href="#fantalks" class="text-white hover:text-black dark:hover:text-orange-700">FanTalks</a></li>
-        <li><a href="anime.html" class="text-white hover:text-black dark:hover:text-orange-700">Anime</a></li>
-        <li><a href="#about" class="text-white hover:text-black dark:hover:text-orange-700">ReadManga</a></li>
-      </ul>
-
-      <!-- RIGHT CONTROLS -->
-      <div class="flex items-center gap-3">
-        <!-- Mobile Menu Button -->
-        <button id="menuBtn" class="md:hidden text-3xl text-white">
-          ☰
-        </button>
-
-
-      </div>
-    </nav>
-
-    <div id="mobileMenu"
-      class="hidden md:hidden bg-orange-700 dark:bg-gray-800 px-6 pb-4 border-t border-orange-800 dark:border-gray-700">
-      <ul class="flex flex-col gap-2 text-white font-medium text-center items-center">
-        <li class="w-full">
-          <a href="#home" class="block w-full px-3 py-2 rounded transition
-                          hover:bg-orange-800 dark:hover:bg-gray-700">
-            Home
-          </a>
-        </li>
-        <li class="w-full">
-          <a href="#characters" class="block w-full px-3 py-2 rounded transition
-                          hover:bg-orange-800 dark:hover:bg-gray-700">
-            Characters
-          </a>
-        </li>
-        <li class="w-full">
-          <a href="#fantalks" class="block w-full px-3 py-2 rounded transition
-                          hover:bg-orange-800 dark:hover:bg-gray-700">
-            FanTalks
-          </a>
-        </li>
-        <li class="w-full">
-          <a href="#anime.html" class="block w-full px-3 py-2 rounded transition
-                          hover:bg-orange-800 dark:hover:bg-gray-700">
-            Anime
-          </a>
-        </li>
-        <li class="w-full">
-          <a href="#about" class="block w-full px-3 py-2 rounded transition
-                          hover:bg-orange-800 dark:hover:bg-gray-700">
-            ReadManga
-          </a>
-        </li>
-      </ul>
+<body class="relative bg-gray-300 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+    <div id="gridBg" class="absolute z-0 inset-0 bg-repeat bg-center"
+        style="background-image: url('assets/grid-bg-light.jpg');background-size:1400px 800px ;">
+<div class="absolute inset-0 z-10 pointer-events-none">
+            <!-- symmetric left & right fade -->
+            <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-black/60">
+            </div>
+          </div>
     </div>
-  </header>
+
+    <!-- ================= NAVBAR (UNCHANGED) ================= -->
+    <header class="bg-orange-700 dark:bg-gray-800 shadow fixed w-full z-50">
+        <nav class="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
+            <a href="index.html">
+                <img class="w-14 bg-white" src="assets/icon.png" alt="AnimeVerse">
+            </a>
+
+            <ul class="hidden md:flex space-x-10 font-medium items-center">
+                <li><a href="index.html" class="text-white hover:text-black dark:hover:text-orange-400">Home</a></li>
+                <li><a href="anime.html" class="text-white font-bold">Anime</a></li>
+                <li><a href="#" class="text-white hover:text-black dark:hover:text-orange-400">FanTalks</a></li>
+                <li><a href="#" class="text-white hover:text-black dark:hover:text-orange-400">ReadManga</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- PAGE CONTEXT FLAG -->
+    <script>window.PAGE_CONTEXT = "ANIME";</script>
 
     <!-- ================= MAIN ================= -->
-    <main class="">
+    <main class="pt-24 px-6 max-w-7xl mx-auto">
 
-        <section>
-                    <div class="absolute inset-0">
-          <div id="gridBg" class="absolute inset-0 bg-repeat bg-center"
-            style="background-image: url('assets/grid-bg-light.jpg');background-size:1400px 800px ;">
 
-          </div>
-        </div>
+
+        <section class="relative z-40">
+            <!-- ===== TOP TABS ===== -->
+            <div class="flex gap-3 mb-6">
+                <button class="px-5 py-2 bg-red-600 text-white font-semibold">Anime Shows</button>
+                <button class="px-5 py-2 bg-gray-600 text-white">Videos</button>
+                <button class="px-5 py-2 bg-gray-600 text-white">Watchlist</button>
+            </div>
+
+            <!-- ===== SEARCH BAR ===== -->
+            <div class="relative mb-10">
+                <input id="animeSearch" type="text" placeholder="Search anime..." class="w-full p-4 pr-12 rounded-lg
+               bg-white dark:bg-gray-800
+               text-black dark:text-white
+               focus:outline-none shadow" />
+                <button id="clearSearchBtn" class="absolute right-4 top-1/2 -translate-y-1/2
+               text-gray-400 hover:text-gray-700
+               dark:hover:text-white hidden">
+                    ✕
+                </button>
+            </div>
+
+            <!-- ===== CATEGORY ROWS CONTAINER ===== -->
+            <div id="animeRows" class="space-y-14"></div>
+
         </section>
-        <!-- HERO SECTION -->
-        
-
-        <!-- ANIME SHOWCASE -->
-       
-
-        <!-- CHARACTER HIGHLIGHT -->
-        
-
-        <!-- CTA -->
-        <!-- <section class="bg-gray-300/80 relative z-40 py-20 text-center">
-            <h3 class="text-3xl font-bold mb-4">Join the AnimeVerse</h3>
-            <p class="text-gray-600 dark:text-gray-400 mb-6">
-                Dive deeper into your favorite anime worlds.
-            </p>
-            <button class="bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700">
-                Get Started
-            </button>
-        </section> -->
-
     </main>
-  <button id="themeToggle" class="fixed bottom-6 right-6 z-50
-         bg-gray-900 text-white
-         dark:bg-gray-100 dark:text-black
-         w-14 h-14 rounded-full shadow-lg
-         flex items-center justify-center text-2xl
-         hover:scale-110 transition-transform">
-    🌙
-  </button>
-    <!-- ================= FOOTER ================= -->
-    <footer class="relative top-14 z-40 bg-gray-900 text-gray-300 py-6 text-center">
-        <p>© 2025 AnimeVerse.</p>
-    </footer>
-  <script src="js/themebtn.js"></script>
-  <script src="js/menubtn.js"></script>
+
+    <!-- ================= THEME TOGGLE BUTTON ================= -->
+    <button id="themeToggle" class="fixed bottom-6 right-6 z-50
+           bg-gray-900 text-white
+           dark:bg-gray-100 dark:text-black
+           w-14 h-14 rounded-full shadow-lg
+           flex items-center justify-center text-2xl
+           hover:scale-110 transition-transform">
+        🌙
+    </button>
+
+    <!-- ================= SCRIPTS (ORDER MATTERS) ================= -->
+<script src="js/animeCatalog.js"></script>
+<script src="js/animeSearch.js"></script>
+<script src="js/animeScroll.js"></script>
+<script src="js/animeToast.js"></script>
+<script src="js/animeAction.js"></script>
+<script src="js/animePopup.js"></script>
+<script src="js/themebtn.js"></script>
+
+
 </body>
 
 </html>

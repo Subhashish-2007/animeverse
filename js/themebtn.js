@@ -1,34 +1,33 @@
 /* ================= THEME TOGGLE ================= */
-const toggleBtn = document.getElementById("themeToggle");
-const html = document.documentElement;
-const gridBg = document.getElementById("gridBg");
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.getElementById("themeToggle");
+  const html = document.documentElement;
+  const gridBg = document.getElementById("gridBg");
 
-/* ---------- APPLY SAVED THEME ON LOAD ---------- */
-const savedTheme = localStorage.getItem("theme") || "light";
-const isDark = savedTheme === "dark";
+  if (!toggleBtn) return;
 
-// apply class
-html.classList.toggle("dark", isDark);
+  /* ---------- APPLY SAVED THEME ON LOAD ---------- */
+  const savedTheme = localStorage.getItem("theme") || "light";
+  const isDark = savedTheme === "dark";
 
-// update toggle icon
-if (toggleBtn) {
+  // apply theme
+  html.classList.toggle("dark", isDark);
+
+  // update icon
   toggleBtn.textContent = isDark ? "☀️" : "🌙";
-}
 
-// ✅ APPLY BACKGROUND IMAGE ON LOAD (THIS WAS MISSING)
-if (gridBg) {
-  gridBg.style.backgroundImage = isDark
-    ? "url('assets/grid-bg-dark.jpg')"
-    : "url('assets/grid-bg-light.jpg')";
-}
+  // apply background ONLY if gridBg exists (index page)
+  if (gridBg) {
+    gridBg.style.backgroundImage = isDark
+      ? "url('assets/grid-bg-dark.jpg')"
+      : "url('assets/grid-bg-light.jpg')";
+  }
 
-/* ---------- TOGGLE ON CLICK ---------- */
-if (toggleBtn) {
+  /* ---------- TOGGLE ON CLICK ---------- */
   toggleBtn.addEventListener("click", () => {
     const nowDark = html.classList.toggle("dark");
 
     localStorage.setItem("theme", nowDark ? "dark" : "light");
-
     toggleBtn.textContent = nowDark ? "☀️" : "🌙";
 
     if (gridBg) {
@@ -37,7 +36,4 @@ if (toggleBtn) {
         : "url('assets/grid-bg-light.jpg')";
     }
   });
-}
-
-
-
+});

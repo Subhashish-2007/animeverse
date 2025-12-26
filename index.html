@@ -221,16 +221,16 @@
         <div class="absolute inset-0">
           <div id="gridBg" class="absolute inset-0 bg-repeat bg-center"
             style="background-image: url('assets/grid-bg-light.jpg');background-size:1400px 800px ;">
-
+            <div class="absolute inset-0 z-10 pointer-events-none">
+              <!-- symmetric left & right fade -->
+              <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-black/60">
+              </div>
+            </div>
           </div>
         </div>
         <!-- ================= ANIME SHOWCASE ================= -->
         <section class="relative z-40 min-w-screen mx-auto py-16  dark:bg-gray-800/70">
-          <div class="absolute inset-0 z-10 pointer-events-none">
-            <!-- symmetric left & right fade -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-black/60">
-            </div>
-          </div>
+
           <div class="min-w-screen mx-auto px-6 text-center">
             <h2 class="text-5xl font-extrabold mb-4">
               Explore <span class="text-red-600">More Anime</span>
@@ -257,11 +257,7 @@
 
         <!-- ================= CHARACTER HIGHLIGHT ================= -->
         <section id="characters" class="relative z-40 py-16  dark:bg-gray-800/70">
-          <div class="absolute inset-0 z-10 pointer-events-none">
-            <!-- symmetric left & right fade -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-black/60">
-            </div>
-          </div>
+
           <div class="max-w-6xl mx-auto px-6 text-center overflow-hidden">
             <h2 class="text-5xl font-extrabold mb-4">
               Explore <span class="text-red-600">Popular Characters</span>
@@ -307,11 +303,7 @@
         <!-- ================= FANTALKS & READMANGA ================= -->
         <section id="fantalks"
           class="min-h-screen flex items-center relative justify-center text-center  dark:bg-gray-800/70">
-          <div class="absolute inset-0 z-10 pointer-events-none">
-            <!-- symmetric left & right fade -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-black/60">
-            </div>
-          </div>
+
 
           <!-- FanTalks -->
           <div class="w-screen h-screen pt-64
@@ -371,10 +363,14 @@
          hover:scale-110 transition-transform">
     🌙
   </button>
+  <script src="js/themebtn.js"></script>
 
+
+  <script>
+    window.PAGE_CONTEXT = "HOME";
+  </script>
   <script src="js/animeShowcase.js"></script>
   <script src="js/animeModal.js"></script>
-  <script src="js/themebtn.js"></script>
   <script src="js/characters.js"></script>
   <script src="js/mainpageBg.js"></script>
   <script src="js/menubtn.js"></script>
