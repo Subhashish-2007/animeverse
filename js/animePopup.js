@@ -32,15 +32,15 @@ function openAnimePopup(anime) {
                 overflow-y-auto shadow-2xl">
 
       <!-- HEADER -->
-      <div class="flex items-center justify-between h-14
-                  bg-gray-800 text-white px-4">
-        <span class="font-semibold text-lg">${anime.title}</span>
+      <div class="flex fixed max-w-6xl w-[95%] items-center justify-between h-14
+                  bg-gray-800 text-white px-0">
+        <span class="font-semibold text-lg pl-4">${anime.title}</span>
         <button id="closePopupBtn"
-          class="h-10 w-10 bg-red-600 hover:bg-red-700 text-xl">✕</button>
+          class="h-14 w-14 bg-red-600 hover:bg-red-700 text-xl">✕</button>
       </div>
 
       <!-- BODY -->
-      <div class="p-6 flex flex-col md:flex-row gap-8">
+      <div class="p-16 flex flex-col md:flex-row gap-8">
 
         <!-- POSTER -->
         <div class="w-full md:w-1/3">
@@ -55,7 +55,7 @@ function openAnimePopup(anime) {
 
           <!-- TAB BUTTONS -->
           <div class="flex gap-4 mb-6">
-            <button id="tabAnime"
+            <button id="tabAnimeDetails"
               class="px-4 py-2 bg-red-600 text-white">
               Anime Details
             </button>
@@ -72,30 +72,24 @@ function openAnimePopup(anime) {
           <!-- ACTION BUTTONS -->
           <div class="flex gap-4 mt-8">
             <button id="moreInfoBtn"
-              class="flex-1 bg-blue-600 text-white py-2 hover:bg-blue-700">
+              class="flex-1  bg-blue-600 text-white py-2 hover:bg-blue-700">
               More Info
             </button>
 
             <button id="watchBtn"
-              class="flex-1 bg-gray-600 text-white py-2 hover:bg-gray-700">
+              class="flex-1 bg-gray-600  text-white py-2 hover:bg-gray-700">
               Watch
             </button>
 
             <button id="addWatchlistBtn"
+              data-malid="${anime.mal_id}"
               class="flex-1 bg-orange-600 text-white py-2 hover:bg-orange-700">
-              + Add to Watchlist
+              Add to Watchlist
             </button>
           </div>
 
         </div>
       </div>
-    </div>
-
-    <!-- TOAST -->
-    <div id="popupToast"
-      class="fixed bottom-10 left-1/2 -translate-x-1/2
-             bg-black text-white px-6 py-3
-             opacity-0 transition-opacity duration-300">
     </div>
   `;
 
@@ -140,7 +134,7 @@ function openAnimePopup(anime) {
 
   /* ================= TAB SWITCH ================= */
 
-  document.getElementById("tabAnime").onclick = () => {
+  document.getElementById("tabAnimeDetails").onclick = () => {
     animeTab.classList.remove("hidden");
     characterTab.classList.add("hidden");
   };
@@ -160,17 +154,38 @@ function openAnimePopup(anime) {
   };
 
   document.getElementById("watchBtn").onclick = () => {
-    showToast("Currently unavailable, available soon");
+    document.dispatchEvent(
+      new CustomEvent("watch:unavailable")
+    );
   };
 
-  document.getElementById("addWatchlistBtn").onclick = () => {
-    if (typeof addToWatchlist === "function") {
-      addToWatchlist(anime);
-      showToast("Added to watchlist");
-    } else {
-      showToast("Watchlist not available");
-    }
+  const watchlistBtn = document.getElementById("addWatchlistBtn");
+
+  // initial state
+  updatePopupWatchlistBtn(watchlistBtn);
+
+  watchlistBtn.onclick = () => {
+    isInWatchlist(anime.mal_id)
+      ? removeFromWatchlist(anime.mal_id)
+      : addToWatchlist(anime);
   };
+}
+
+/* ================= WATCHLIST BUTTON STATE ================= */
+
+function updatePopupWatchlistBtn(btn) {
+  const malId = +btn.dataset.malid;
+  if (!malId) return;
+
+  if (isInWatchlist(malId)) {
+    btn.textContent = "Remove from Watchlist";
+    btn.classList.remove("bg-orange-600");
+    btn.classList.add("bg-red-600");
+  } else {
+    btn.textContent = "Add to Watchlist";
+    btn.classList.remove("bg-red-600");
+    btn.classList.add("bg-orange-600");
+  }
 }
 
 /* ================= LOAD MAIN CHARACTERS ================= */
@@ -210,20 +225,6 @@ function loadMainCharacters(animeId, container) {
     .catch(() => {
       container.innerHTML = "<p>Failed to load characters.</p>";
     });
-}
-
-/* ================= TOAST ================= */
-
-function showToast(msg) {
-  const toast = document.getElementById("popupToast");
-  if (!toast) return;
-
-  toast.textContent = msg;
-  toast.style.opacity = "1";
-
-  setTimeout(() => {
-    toast.style.opacity = "0";
-  }, 2000);
 }
 
 /* ================= CLOSE ================= */

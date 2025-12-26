@@ -3,6 +3,7 @@
    - Fetch top anime
    - Build category rows
    - Create anime cards
+   - Delegate watchlist state to global sync
 */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -136,10 +137,14 @@ document.addEventListener("DOMContentLoaded", () => {
       </p>
 
       <div class="flex gap-2 mt-auto">
-        <button class="watch-btn flex-1 bg-gray-700 text-white py-1 text-xs">
+        <button
+          class="watch-btn flex-1 bg-gray-700 text-white py-1 text-xs">
           Watch
         </button>
-        <button class="watchlist-btn flex-1 bg-orange-600 text-white py-1 text-xs">
+
+        <button
+          class="watchlist-btn flex-1 bg-orange-600 text-white py-1 text-xs"
+          data-malid="${anime.mal_id}">
           + Watchlist
         </button>
       </div>
@@ -160,16 +165,38 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
 
-    /* ---- Watchlist button ---- */
-    card.querySelector(".watchlist-btn").onclick = e => {
-      e.stopPropagation();
-      if (typeof addToWatchlist === "function") {
-        addToWatchlist(anime);
-        if (window.showCardToast) {
-          showCardToast("Added to watchlist");
-        }
-      }
-    };
+   /* ---- Watchlist button (NO UI LOGIC HERE) ---- */
+const watchlistBtn = card.querySelector(".watchlist-btn");
+
+/* ✅ ADD THIS BLOCK — INITIAL UI SYNC */
+if (isInWatchlist(anime.mal_id)) {
+  watchlistBtn.textContent = "Remove";
+  watchlistBtn.classList.remove("bg-orange-600");
+  watchlistBtn.classList.add("bg-red-600");
+}
+/* ✅ END ADD */
+
+watchlistBtn.onclick = e => {
+  e.stopPropagation();
+
+  if (!anime || !anime.mal_id) {
+    console.error("Invalid anime object passed from card", anime);
+    return;
+  }
+
+  if (isInWatchlist(anime.mal_id)) {
+    removeFromWatchlist(anime.mal_id);
+  } else {
+    addToWatchlist({
+      mal_id: anime.mal_id,
+      title: anime.title,
+      images: anime.images,
+      score: anime.score
+    });
+  }
+};
+
+
 
     return card;
   }

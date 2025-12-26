@@ -1,12 +1,12 @@
 /* ================= ANIME ACTIONS (WATCHLIST) ================= */
 
 /*
-  Watchlist storage key
+  Storage key
 */
 const WATCHLIST_KEY = "anime_watchlist";
 
 /*
-  Get watchlist from localStorage
+  Get watchlist
 */
 function getWatchlist() {
   try {
@@ -17,58 +17,62 @@ function getWatchlist() {
 }
 
 /*
-  Save watchlist to localStorage
+  Save watchlist
 */
 function saveWatchlist(list) {
   localStorage.setItem(WATCHLIST_KEY, JSON.stringify(list));
 }
 
 /*
-  Add anime to watchlist
+  Check if anime is in watchlist
+*/
+window.isInWatchlist = function (mal_id) {
+  return getWatchlist().some(item => item.mal_id === mal_id);
+};
+
+/*
+  Add to watchlist
 */
 window.addToWatchlist = function (anime) {
   if (!anime || !anime.mal_id) return;
 
-  const watchlist = getWatchlist();
+  const list = getWatchlist();
+  if (list.some(item => item.mal_id === anime.mal_id)) return;
 
-  const exists = watchlist.some(item => item.mal_id === anime.mal_id);
-  if (exists) {
-    if (window.showCardToast) {
-      showCardToast("Already in watchlist");
-    }
-    return;
-  }
-
-  watchlist.push({
+  list.push({
     mal_id: anime.mal_id,
     title: anime.title,
     image: anime.images?.jpg?.image_url || "",
     score: anime.score
   });
 
-  saveWatchlist(watchlist);
+  saveWatchlist(list);
 
-  if (window.showCardToast) {
-    showCardToast("Added to watchlist");
-  }
+  // 🔔 notify app
+  document.dispatchEvent(
+    new CustomEvent("watchlist:changed", {
+      detail: { type: "add", anime }
+    })
+  );
 };
 
 /*
-  Remove anime from watchlist
+  Remove from watchlist
 */
 window.removeFromWatchlist = function (mal_id) {
-  const watchlist = getWatchlist().filter(
-    anime => anime.mal_id !== mal_id
+  saveWatchlist(
+    getWatchlist().filter(item => item.mal_id !== mal_id)
   );
 
-  saveWatchlist(watchlist);
-
-  if (window.showCardToast) {
-    showCardToast("Removed from watchlist");
-  }
+  // 🔔 notify app
+  document.dispatchEvent(
+    new CustomEvent("watchlist:changed", {
+      detail: { type: "remove", mal_id }
+    })
+  );
 };
 
 /*
-  Get watchlist (for Watchlist page later)
+  Expose getter
 */
 window.getWatchlist = getWatchlist;
