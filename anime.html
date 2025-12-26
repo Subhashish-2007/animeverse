@@ -1,150 +1,205 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AnimeVerse | Anime</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AnimeVerse | Anime</title>
 
-  <!-- Early theme apply (prevents flicker) -->
-  <script>
-    (function () {
-      const savedTheme = localStorage.getItem("theme");
-      if (savedTheme === "dark") {
-        document.documentElement.classList.add("dark");
-      }
-    })();
-  </script>
-
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Tailwind config (MERGED) -->
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      plugins: [
-        function ({ addUtilities }) {
-          addUtilities({
-            ".scrollbar-thin": { "scrollbar-width": "thin" },
-            ".scrollbar-thin::-webkit-scrollbar": { height: "8px" },
-            ".scrollbar-thumb-orange::-webkit-scrollbar-thumb": {
-              backgroundColor: "#f97316",
-              borderRadius: "9999px"
-            },
-            ".scrollbar-track-transparent::-webkit-scrollbar-track": {
-              background: "transparent"
+    <!-- Early theme apply (prevents flicker) -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme === "dark") {
+                document.documentElement.classList.add("dark");
             }
-          });
-        }
-      ]
-    };
-  </script>
+        })();
+    </script>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind config (MERGED) -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            plugins: [
+                function ({ addUtilities }) {
+                    addUtilities({
+                        ".scrollbar-thin": { "scrollbar-width": "thin" },
+                        ".scrollbar-thin::-webkit-scrollbar": { height: "8px" },
+                        ".scrollbar-thumb-orange::-webkit-scrollbar-thumb": {
+                            backgroundColor: "#f97316",
+                            borderRadius: "9999px"
+                        },
+                        ".scrollbar-track-transparent::-webkit-scrollbar-track": {
+                            background: "transparent"
+                        }
+                    });
+                }
+            ]
+        };
+    </script>
 </head>
 
-<body class="bg-gray-300 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+<body class="bg-gray-300 relative text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
-  <!-- ================= NAVBAR (UNCHANGED) ================= -->
-  <header class="bg-orange-700 dark:bg-gray-800 shadow fixed w-full z-50">
-    <nav class="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
-      <a href="index.html">
-        <img class="w-14 bg-white" src="assets/icon.png" alt="AnimeVerse">
-      </a>
+    <!-- ================= NAVBAR  ================= -->
+    <header class="bg-orange-700 dark:bg-gray-800 shadow z-50 fixed w-full">
 
-      <ul class="hidden md:flex space-x-10 font-medium items-center">
-        <li><a href="index.html" class="text-white hover:text-black dark:hover:text-orange-400">Home</a></li>
-        <li><a href="anime.html" class="text-white font-bold">Anime</a></li>
-        <li><a href="#" class="text-white hover:text-black dark:hover:text-orange-400">FanTalks</a></li>
-        <li><a href="#" class="text-white hover:text-black dark:hover:text-orange-400">ReadManga</a></li>
-      </ul>
-    </nav>
-  </header>
+        <nav class="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
 
-  <!-- PAGE CONTEXT -->
-  <script>window.PAGE_CONTEXT = "ANIME";</script>
+            <!-- LEFT: Logo -->
+            <a class="bg-white dark:bg-gray-800" href="mainpage.html">
+                <img class="w-14" src="assets/icon.png" alt="AnimeVerse">
+            </a>
 
-  <!-- ================= MAIN ================= -->
-  <main class="pt-24 px-6 max-w-7xl mx-auto">
+            <!-- DESKTOP MENU -->
+            <ul class="hidden md:flex space-x-10 font-medium items-center">
+                <li><a href="index.html" class="text-white hover:text-black dark:hover:text-orange-700">Home</a></li>
+                <li><a href="index.html#character" class="text-white hover:text-black dark:hover:text-orange-700">Characters</a>
+                </li>
+                <li class="hidden"><a href="#fantalks"
+                        class="text-white hover:text-black  dark:hover:text-orange-700">FanTalks</a></li>
+                <li><a href="anime.html" class="text-white hover:text-black dark:hover:text-orange-700">Anime</a></li>
+                <li class="hidden"><a href="#about"
+                        class="text-white hover:text-black dark:hover:text-orange-700">ReadManga</a></li>
+            </ul>
 
-    <!-- ===== TABS ===== -->
-    <div class="flex gap-3 mb-6">
-      <button id="tabAnime"
-        class="px-5 py-2 bg-red-600 text-white font-semibold">
-        Anime Shows
-      </button>
+            <!-- RIGHT CONTROLS -->
+            <div class="flex items-center gap-3">
+                <!-- Mobile Menu Button -->
+                <button id="menuBtn" class="md:hidden text-3xl text-white">
+                    ☰
+                </button>
 
-      <button id="tabVideos"
-        class="px-5 py-2 bg-gray-600 text-white">
-        Videos
-      </button>
 
-      <button id="tabWatchlist"
-        class="px-5 py-2 bg-gray-600 text-white">
-        Watchlist
-      </button>
-    </div>
+            </div>
+        </nav>
 
-    <!-- ===== SEARCH BAR ===== -->
-    <div class="relative mb-10">
-      <input
-        id="animeSearch"
-        type="text"
-        placeholder="Search anime..."
-        class="w-full p-4 pr-12 rounded-lg
+        <div id="mobileMenu"
+            class="hidden md:hidden bg-orange-700 dark:bg-gray-800 px-6 pb-4 border-t border-orange-800 dark:border-gray-700 transition-colors duration-700 ease-in-out">
+            <ul class="flex flex-col gap-2 text-white font-medium text-center items-center">
+                <li class="w-full">
+                    <a href="index.html" class="block w-full px-3 py-2  transition
+                          hover:bg-orange-800 dark:hover:bg-gray-700">
+                        Home
+                    </a>
+                </li>
+                <li class="w-full">
+                    <a href="#characters" class="block w-full px-3 py-2  transition
+                          hover:bg-orange-800 dark:hover:bg-gray-700">
+                        Characters
+                    </a>
+                </li>
+                <li class="w-full hidden">
+                    <a href="#fantalks" class="block w-full px-3 py-2  transition
+                          hover:bg-orange-800 dark:hover:bg-gray-700">
+                        FanTalks
+                    </a>
+                </li>
+                <li class="w-full">
+                    <a href="anime.html" class="block w-full px-3 py-2  transition
+                          hover:bg-orange-800 dark:hover:bg-gray-700">
+                        Anime
+                    </a>
+                </li>
+                <li class="w-full hidden">
+                    <a href="#about" class="block w-full px-3 py-2  transition
+                          hover:bg-orange-800 dark:hover:bg-gray-700">
+                        ReadManga
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!-- PAGE CONTEXT -->
+    <script>window.PAGE_CONTEXT = "ANIME";</script>
+
+    <!-- ================= MAIN ================= -->
+    <main class="pt-24 relative px-6 ">
+                <!-- ================= FIXED GRID BACKGROUND ================= -->
+        <div class="absolute inset-0">
+          <div id="gridBg" class="absolute inset-0 bg-repeat bg-center transition-opacity duration-700 ease-in-out
+"
+            >
+            <div class="absolute inset-0 z-10 pointer-events-none">
+              <!-- symmetric left & right fade -->
+              <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-black/60">
+              </div>
+            </div>
+          </div>
+        </div>
+        <section class="relative z-40 max-w-7xl mx-auto">
+            <!-- ===== TABS ===== -->
+            <div class="flex gap-3 mb-6">
+                <button id="tabAnime" class="px-5 py-2 bg-red-600 text-white font-semibold">
+                    Anime Shows
+                </button>
+
+                <button id="tabVideos" class="px-5 py-2 bg-gray-600 text-white">
+                    Videos
+                </button>
+
+                <button id="tabWatchlist" class="px-5 py-2 bg-gray-600 text-white">
+                    Watchlist
+                </button>
+            </div>
+
+            <!-- ===== SEARCH BAR ===== -->
+            <div class="relative mb-10">
+                <input id="animeSearch" type="text" placeholder="Search anime..." class="w-full p-4 pr-12 rounded-lg
                bg-white dark:bg-gray-800
                text-black dark:text-white
-               focus:outline-none shadow"
-      />
-      <button
-        id="clearSearchBtn"
-        class="absolute right-4 top-1/2 -translate-y-1/2
+               focus:outline-none shadow" />
+                <button id="clearSearchBtn" class="absolute right-4 top-1/2 -translate-y-1/2
                text-gray-400 hover:text-gray-700
                dark:hover:text-white hidden">
-        ✕
-      </button>
-    </div>
+                    ✕
+                </button>
+            </div>
 
-    <!-- ================= ANIME CATALOG ================= -->
-    <section id="animeSection">
-      <div id="animeRows" class="space-y-14"></div>
-    </section>
+            <!-- ================= ANIME CATALOG ================= -->
+            <section id="animeSection">
+                <div id="animeRows" class="space-y-14"></div>
+            </section>
 
-    <!-- ================= WATCHLIST ================= -->
-    <section id="watchlistSection" class="hidden">
+            <!-- ================= WATCHLIST ================= -->
+            <section id="watchlistSection" class="hidden min-h-[75vh]">
 
-      <div id="watchlistGrid"
-        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-      </div>
+                <div id="watchlistGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+                </div>
 
-      <p id="watchlistEmpty"
-        class="hidden text-center text-gray-500 mt-10">
-        Your watchlist is empty
-      </p>
+                <p id="watchlistEmpty" class="hidden text-center text-gray-500 mt-10">
+                    Your watchlist is empty
+                </p>
 
-    </section>
+            </section>
 
-  </main>
+        </section>
+    </main>
 
-  <!-- ================= THEME TOGGLE ================= -->
-  <button id="themeToggle"
-    class="fixed bottom-6 right-6 z-50
+    <!-- ================= THEME TOGGLE ================= -->
+    <button id="themeToggle" class="fixed bottom-6 right-6 z-50
            bg-gray-900 text-white
            dark:bg-gray-100 dark:text-black
            w-14 h-14 rounded-full shadow-lg
            flex items-center justify-center text-2xl
            hover:scale-110 transition-transform">
-    🌙
-  </button>
+        🌙
+    </button>
 
-  <!-- ================= SCRIPTS (ORDER MATTERS) ================= -->
-<script src="js/animeActions.js"></script>
-<script src="js/animeToast.js"></script>
-<script src="js/animeWatchlistSync.js"></script>
-
-<script src="js/animeCatalog.js"></script>
-<script src="js/animeWatchlist.js"></script>
-<script src="js/animePopup.js"></script>
-<script src="js/themebtn.js"></script>
-
-
+    <!-- ================= SCRIPTS (ORDER MATTERS) ================= -->
+    <script src="js/animeActions.js"></script>
+    <script src="js/animeToast.js"></script>
+    <script src="js/animeWatchlistSync.js"></script>
+    <script src="js/animeScroll.js"></script>
+    <script src="js/animeCatalog.js"></script>
+    <script src="js/animeWatchlist.js"></script>
+    <script src="js/animePopup.js"></script>
+    <script src="js/themebtn.js"></script>
+    <script src="js/menubtn.js"></script>
+    <script src="js/animeSearch.js"></script>
 </body>
+
 </html>

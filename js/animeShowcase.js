@@ -32,7 +32,7 @@ function renderAnimeCard(anime, index) {
   class="anime-card relative bg-gray-500 dark:bg-gray-800
          min-w-[16rem] max-w-[16rem]
          h-[26rem]
-         border-4 border-orange-600
+         border-4 border-orange-800
          p-4
          transition-all duration-300
          hover:scale-105 cursor-pointer mb-[16px]
@@ -40,7 +40,7 @@ function renderAnimeCard(anime, index) {
 
       data-index="${index}">
 <span class="absolute top-0 left-0 mb-1 w-fit
-                     bg-orange-600 border-4 border-orange-300
+                     bg-orange-800 border-4 border-orange-800
                      px-4 py-[2px] text-[20px] ">
            #${anime.rank}
         </span>

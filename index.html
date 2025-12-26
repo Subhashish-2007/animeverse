@@ -108,10 +108,12 @@
 
 </head>
 
-<body class="bg-gray-300 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+<body class="bg-gray-300 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-700 ease-in-out">
+
 
   <!-- ================= HEADER / NAVBAR ================= -->
   <header class="bg-orange-700 dark:bg-gray-800 shadow z-50 fixed w-full">
+
     <nav class="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
 
       <!-- LEFT: Logo -->
@@ -124,9 +126,11 @@
         <li><a href="#home" class="text-white hover:text-black dark:hover:text-orange-700">Home</a></li>
         <li><a href="#characters" class="text-white hover:text-black dark:hover:text-orange-700">Characters</a>
         </li>
-        <li><a href="#fantalks" class="text-white hover:text-black dark:hover:text-orange-700">FanTalks</a></li>
+        <li class="hidden"><a href="#fantalks"
+            class="text-white hover:text-black  dark:hover:text-orange-700">FanTalks</a></li>
         <li><a href="anime.html" class="text-white hover:text-black dark:hover:text-orange-700">Anime</a></li>
-        <li><a href="#about" class="text-white hover:text-black dark:hover:text-orange-700">ReadManga</a></li>
+        <li class="hidden"><a href="#about" class="text-white hover:text-black dark:hover:text-orange-700">ReadManga</a>
+        </li>
       </ul>
 
       <!-- RIGHT CONTROLS -->
@@ -141,34 +145,34 @@
     </nav>
 
     <div id="mobileMenu"
-      class="hidden md:hidden bg-orange-700 dark:bg-gray-800 px-6 pb-4 border-t border-orange-800 dark:border-gray-700">
+      class="hidden md:hidden bg-orange-700 dark:bg-gray-800 px-6 pb-4 border-t border-orange-800 dark:border-gray-700 transition-colors duration-700 ease-in-out">
       <ul class="flex flex-col gap-2 text-white font-medium text-center items-center">
         <li class="w-full">
-          <a href="#home" class="block w-full px-3 py-2 rounded transition
+          <a href="home.html" class="block w-full px-3 py-2  transition
                           hover:bg-orange-800 dark:hover:bg-gray-700">
             Home
           </a>
         </li>
         <li class="w-full">
-          <a href="#characters" class="block w-full px-3 py-2 rounded transition
+          <a href="#characters" class="block w-full px-3 py-2  transition
                           hover:bg-orange-800 dark:hover:bg-gray-700">
             Characters
           </a>
         </li>
-        <li class="w-full">
-          <a href="#fantalks" class="block w-full px-3 py-2 rounded transition
+        <li class="w-full hidden">
+          <a href="#fantalks" class="block w-full px-3 py-2  transition
                           hover:bg-orange-800 dark:hover:bg-gray-700">
             FanTalks
           </a>
         </li>
         <li class="w-full">
-          <a href="#anime.html" class="block w-full px-3 py-2 rounded transition
+          <a href="anime.html" class="block w-full px-3 py-2  transition
                           hover:bg-orange-800 dark:hover:bg-gray-700">
             Anime
           </a>
         </li>
-        <li class="w-full">
-          <a href="#about" class="block w-full px-3 py-2 rounded transition
+        <li class="w-full hidden">
+          <a href="#about" class="block w-full px-3 py-2  transition
                           hover:bg-orange-800 dark:hover:bg-gray-700">
             ReadManga
           </a>
@@ -196,7 +200,14 @@
 
 
           <!-- Content -->
-          <div class="relative z-10 bg-white/20 backdrop-blur-md max-w-3xl p-10 shadow-xl">
+          <div class="relative z-10 bg-gradient-to-r from-black/60 via-black/10 to-black/60 max-w-3xl p-10 shadow-xl transition-colors duration-700 ease-in-out
+"> 
+<img src="assets/icon.png"
+     alt="AnimeVerse Logo"
+     class="mx-auto mb-6
+            w-[200px] sm:w-[250px] md:w-[300px]
+            h-auto
+            transition-transform duration-300">
             <h1 class="text-4xl sm:text-6xl font-extrabold text-white mb-4">
               Enter the <span class="text-red-500">AnimeVerse</span>
             </h1>
@@ -217,10 +228,10 @@
 
 
       <section class="relative" id="secondSection">
-        <!-- ================= FIXED GRID BACKGROUND (AFTER HERO) ================= -->
+        <!-- =================BACKGROUND ================= -->
         <div class="absolute inset-0">
-          <div id="gridBg" class="absolute inset-0 bg-repeat bg-center"
-            style="background-image: url('assets/grid-bg-light.jpg');background-size:1400px 800px ;">
+          <div id="gridBg" class="absolute inset-0 bg-repeat bg-center transition-opacity duration-700 ease-in-out
+">
             <div class="absolute inset-0 z-10 pointer-events-none">
               <!-- symmetric left & right fade -->
               <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-black/60">
@@ -229,10 +240,11 @@
           </div>
         </div>
         <!-- ================= ANIME SHOWCASE ================= -->
-        <section class="relative z-40 min-w-screen mx-auto py-16  dark:bg-gray-800/70">
+        <section
+          class="relative z-40 min-w-screen mx-auto py-16  dark:bg-gray-800/70 transition-colors duration-700 ease-in-out">
 
           <div class="min-w-screen mx-auto px-6 text-center">
-            <h2 class="text-5xl font-extrabold mb-4">
+            <h2 class="text-3xl sm:text-4xl lg:text-[50px] font-extrabold mb-4">
               Explore <span class="text-red-600">More Anime</span>
             </h2>
 
@@ -256,10 +268,11 @@
 
 
         <!-- ================= CHARACTER HIGHLIGHT ================= -->
-        <section id="characters" class="relative z-40 py-16  dark:bg-gray-800/70">
+        <section id="characters"
+          class="relative z-40 py-16  dark:bg-gray-800/70 transition-colors duration-700 ease-in-out">
 
           <div class="max-w-6xl mx-auto px-6 text-center overflow-hidden">
-            <h2 class="text-5xl font-extrabold mb-4">
+            <h2 class="text-3xl sm:text-4xl lg:text-[50px] font-extrabold mb-4">
               Explore <span class="text-red-600">Popular Characters</span>
             </h2>
 
@@ -301,11 +314,11 @@
 
 
         <!-- ================= FANTALKS & READMANGA ================= -->
-        <section id="fantalks"
+        <!-- <section id="fantalks"
           class="min-h-screen flex items-center relative justify-center text-center  dark:bg-gray-800/70">
 
 
-          <!-- FanTalks -->
+
           <div class="w-screen h-screen pt-64
                        bg-transparent">
 
@@ -322,7 +335,7 @@
 
           <div class="bg-black h-dvh w-1"></div>
 
-          <!-- ReadManga -->
+
           <div class="w-screen h-screen pt-64
                        ">
 
@@ -336,15 +349,247 @@
               Explore Now
             </button>
           </div>
+        </section> -->
+        <section id="faq" class="py-20 px-6 dark:bg-gray-800/70 transition-colors duration-700 ease-in-out">
+          <div class="max-w-4xl mx-auto">
+
+            <h2 class="text-4xl font-extrabold text-center mb-12 text-gray-900 dark:text-gray-100">
+              Frequently Asked <span class="text-red-600">Questions</span>
+            </h2>
+
+            <div class="space-y-4">
+
+              <!-- FAQ ITEM 1 -->
+              <div class="faq-item
+                  border border-gray-400/50 dark:border-gray-700
+                  bg-gray-300/40 dark:bg-gray-800/60
+                  backdrop-blur-md transition-colors duration-700 ease-in-out">
+
+                <button class="faq-question w-full flex justify-between items-center
+                       px-6 py-5 text-left text-lg font-semibold
+                       text-gray-900 dark:text-gray-100
+                       hover:bg-gray-300/60 dark:hover:bg-gray-700/60
+                       transition-colors duration-700">
+                  <span>What features are currently available on AnimeVerse?</span>
+                  <span class="faq-icon text-3xl text-red-600">+</span>
+                </button>
+
+                <div class="faq-answer
+                    max-h-0 overflow-hidden opacity-0
+                    px-6 text-base
+                    text-gray-800 dark:text-gray-300
+                    transition-[max-height,opacity] duration-700 ease-out">
+                  <p class="py-5">
+                    Currently, AnimeVerse allows users to browse top anime, explore top anime characters,
+                    search for anime, and add or remove anime from a personal watchlist.
+                    More features will be added in future updates.
+                  </p>
+                </div>
+              </div>
+
+              <!-- FAQ ITEM 2 -->
+              <div class="faq-item
+                  border border-gray-400/50 dark:border-gray-700
+                  bg-gray-300/40 dark:bg-gray-800/60
+                  backdrop-blur-md transition-colors duration-700 ease-in-out">
+
+                <button class="faq-question w-full flex justify-between items-center
+                       px-6 py-5 text-left text-lg font-semibold
+                       text-gray-900 dark:text-gray-100
+                       hover:bg-gray-300/60 dark:hover:bg-gray-700/60
+                       transition-colors duration-700">
+                  <span>Where is my watchlist stored?</span>
+                  <span class="faq-icon text-3xl text-red-600">+</span>
+                </button>
+
+                <div class="faq-answer
+                    max-h-0 overflow-hidden opacity-0
+                    px-6 text-base
+                    text-gray-800 dark:text-gray-300
+                    transition-[max-height,opacity] duration-700 ease-out">
+                  <p class="py-5">
+                    Your watchlist is stored locally in your browser using localStorage.
+                    No account is required, and the data remains saved unless browser storage is cleared.
+                  </p>
+                </div>
+              </div>
+
+              <!-- FAQ ITEM 3 -->
+              <div class="faq-item
+                  border border-gray-400/50 dark:border-gray-700
+                  bg-gray-300/40 dark:bg-gray-800/60
+                  backdrop-blur-md transition-colors duration-700 ease-in-out">
+
+                <button class="faq-question w-full flex justify-between items-center
+                       px-6 py-5 text-left text-lg font-semibold
+                       text-gray-900 dark:text-gray-100
+                       hover:bg-gray-300/60 dark:hover:bg-gray-700/60
+                       transition-colors duration-700">
+                  <span>Do I need to create an account to use AnimeVerse?</span>
+                  <span class="faq-icon text-3xl text-red-600">+</span>
+                </button>
+
+                <div class="faq-answer
+                    max-h-0 overflow-hidden opacity-0
+                    px-6 text-base
+                    text-gray-800 dark:text-gray-300
+                    transition-[max-height,opacity] duration-700 ease-out">
+                  <p class="py-5">
+                    No. AnimeVerse does not require any account or sign-up.
+                    All available features can be accessed directly through your browser.
+                  </p>
+                </div>
+              </div>
+
+              <!-- FAQ ITEM 4 -->
+              <div class="faq-item
+                  border border-gray-400/50 dark:border-gray-700
+                  bg-gray-300/40 dark:bg-gray-800/60
+                  backdrop-blur-md transition-colors duration-700 ease-in-out">
+
+                <button class="faq-question w-full flex justify-between items-center
+                       px-6 py-5 text-left text-lg font-semibold
+                       text-gray-900 dark:text-gray-100
+                       hover:bg-gray-300/60 dark:hover:bg-gray-700/60
+                       transition-colors duration-700">
+                  <span>Can I watch anime or read manga on AnimeVerse?</span>
+                  <span class="faq-icon text-3xl text-red-600">+</span>
+                </button>
+
+                <div class="faq-answer
+                    max-h-0 overflow-hidden opacity-0
+                    px-6 text-base
+                    text-gray-800 dark:text-gray-300
+                    transition-[max-height,opacity] duration-700 ease-out">
+                  <p class="py-5">
+                    Currently, AnimeVerse does not stream anime episodes or provide full manga reading.
+                    These features are planned and will be available in future updates.
+                  </p>
+                </div>
+              </div>
+
+              <!-- FAQ ITEM 5 -->
+              <div class="faq-item
+                  border border-gray-400/50 dark:border-gray-700
+                  bg-gray-300/40 dark:bg-gray-800/60
+                  backdrop-blur-md transition-colors duration-700 ease-in-out">
+
+                <button class="faq-question w-full flex justify-between items-center
+                       px-6 py-5 text-left text-lg font-semibold
+                       text-gray-900 dark:text-gray-100
+                       hover:bg-gray-300/60 dark:hover:bg-gray-700/60
+                       transition-colors duration-700">
+                  <span>Where does AnimeVerse get its data from?</span>
+                  <span class="faq-icon text-3xl text-red-600">+</span>
+                </button>
+
+                <div class="faq-answer
+                    max-h-0 overflow-hidden opacity-0
+                    px-6 text-base
+                    text-gray-800 dark:text-gray-300
+                    transition-[max-height,opacity] duration-700 ease-out">
+                  <p class="py-5">
+                    AnimeVerse uses third-party APIs to fetch anime and character information.
+                    The platform does not own or host this content.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </section>
+
+
+
+
       </section>
 
   </main>
 
   <!-- ================= FOOTER ================= -->
-  <footer class="relative z-40 bg-gray-900 text-gray-300 py-6 text-center">
-    <p>© 2025 AnimeVerse.</p>
+  <footer class="relative z-40 mt-20
+               bg-gray-300/80 dark:bg-gray-900/90
+               backdrop-blur-md
+               border-t border-gray-400 dark:border-gray-700 transition-colors duration-700 ease-in-out">
+
+    <div class="max-w-7xl mx-auto px-6 py-14 text-center">
+
+      <!-- BRAND -->
+      <h3 class="text-3xl font-extrabold mb-3
+               text-gray-900 dark:text-gray-100">
+        Anime<span class="text-red-600">Verse</span>
+      </h3>
+
+      <p class="text-base text-gray-700 dark:text-gray-400 mb-10">
+        Explore legendary anime worlds, unforgettable characters,
+        and stories that transcend reality.
+      </p>
+
+      <!-- LINKS -->
+      <div class="flex flex-wrap justify-center gap-8
+                text-base font-semibold
+                text-gray-800 dark:text-gray-300 mb-10">
+        <a href="#home" class="hover:text-red-600 transition">Home</a>
+        <a href="#characters" class="hover:text-red-600 transition">Characters</a>
+        <a href="#fantalks" class="hover:text-red-600 transition">FanTalks</a>
+        <a href="anime.html" class="hover:text-red-600 transition">Anime</a>
+        <a href="#faq" class="hover:text-red-600 transition">FAQ</a>
+      </div>
+
+      <!-- DIVIDER -->
+      <div class="w-full h-[2px] bg-gray-400 dark:bg-gray-700 mb-8"></div>
+
+      <!-- CREDIT -->
+      <p class="text-lg font-semibold
+              text-gray-900 dark:text-gray-200 mb-5">
+        Built by <span class="text-red-600">Subhashish Sahu</span>
+      </p>
+
+      <!-- SOCIAL ICONS -->
+      <div class="flex justify-center gap-8 mb-6">
+
+        <!-- GitHub -->
+        <a href="https://github.com/Subhashish-2007" target="_blank" aria-label="GitHub" class="flex items-center justify-center
+            w-12 h-12 
+            bg-black
+            text-white
+            hover:bg-red-600
+            transition-colors duration-700
+">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M12 .5C5.73.5.75 5.64.75 12.02c0 5.1 3.29 9.42 7.86 10.95.58.11.79-.26.79-.57v-2.2c-3.2.7-3.88-1.39-3.88-1.39-.53-1.37-1.29-1.74-1.29-1.74-1.05-.74.08-.73.08-.73 1.16.08 1.77 1.2 1.77 1.2 1.03 1.8 2.7 1.28 3.36.98.1-.76.4-1.28.72-1.57-2.56-.3-5.26-1.31-5.26-5.84 0-1.29.45-2.34 1.19-3.17-.12-.3-.52-1.5.11-3.12 0 0 .98-.32 3.2 1.21a10.8 10.8 0 012.92-.4c.99 0 1.99.14 2.92.4 2.22-1.53 3.2-1.21 3.2-1.21.63 1.62.23 2.82.11 3.12.74.83 1.19 1.88 1.19 3.17 0 4.54-2.7 5.54-5.28 5.83.41.36.77 1.07.77 2.16v3.2c0 .32.21.69.8.57 4.56-1.53 7.85-5.85 7.85-10.95C23.25 5.64 18.27.5 12 .5z" />
+          </svg>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/subhashish-sahu-a40720385/" target="_blank" aria-label="LinkedIn" class="flex items-center justify-center
+            w-12 h-12 
+            bg-black
+            text-white
+            hover:bg-red-600
+            transition-colors duration-700">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path
+              d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6S0 4.88 0 3.5 1.08 1 2.48 1h.02C3.9 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zM8.5 8h3.8v2.2h.1c.53-1 1.83-2.2 3.77-2.2 4.03 0 4.78 2.66 4.78 6.12V24h-4v-8.3c0-1.98-.04-4.52-2.76-4.52-2.76 0-3.18 2.15-3.18 4.38V24h-4V8z" />
+          </svg>
+        </a>
+
+      </div>
+
+
+      <!-- DISCLAIMER -->
+      <p class="text-sm text-gray-700 dark:text-gray-500 max-w-4xl mx-auto">
+        © 2025 AnimeVerse. This site uses third-party images and APIs.
+        We do not claim ownership of external content.
+      </p>
+
+    </div>
   </footer>
+
+
+
+
 
   <!-- ================= ANIME MODAL (RESTORED) ================= -->
   <div id="animeModal" class="fixed inset-0 hidden z-50 bg-black/70 flex items-center justify-center">
@@ -369,6 +614,7 @@
   <script>
     window.PAGE_CONTEXT = "HOME";
   </script>
+  <script src="js/faq.js"></script>
   <script src="js/animeShowcase.js"></script>
   <script src="js/animeModal.js"></script>
   <script src="js/characters.js"></script>

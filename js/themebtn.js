@@ -17,11 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
   toggleBtn.textContent = isDark ? "☀️" : "🌙";
 
   // apply background ONLY if gridBg exists (index page)
-  if (gridBg) {
-    gridBg.style.backgroundImage = isDark
-      ? "url('assets/grid-bg-dark.jpg')"
-      : "url('assets/grid-bg-light.jpg')";
-  }
+  // if (gridBg) {
+  //   gridBg.style.backgroundImage = isDark
+  //     ? "url('assets/grid-bg-dark.jpg')"
+  //     : "url('assets/grid-bg-light.jpg')";
+  // }
 
   /* ---------- TOGGLE ON CLICK ---------- */
   toggleBtn.addEventListener("click", () => {
@@ -30,10 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("theme", nowDark ? "dark" : "light");
     toggleBtn.textContent = nowDark ? "☀️" : "🌙";
 
-    if (gridBg) {
-      gridBg.style.backgroundImage = nowDark
-        ? "url('assets/grid-bg-dark.jpg')"
-        : "url('assets/grid-bg-light.jpg')";
-    }
+    // if (gridBg) {
+    //   gridBg.style.backgroundImage = nowDark
+    //     ? "url('assets/grid-bg-dark.png')"
+    //     : "url('assets/grid-bg-light.png')";
+    // }
   });
 });

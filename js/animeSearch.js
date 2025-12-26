@@ -19,34 +19,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ================= INPUT SEARCH ================= */
 
-  searchInput.addEventListener("input", e => {
-    const query = e.target.value.trim();
+searchInput.addEventListener("input", e => {
+  const query = e.target.value.trim();
 
-    clearTimeout(searchTimeout);
+  clearTimeout(searchTimeout);
 
-    // Toggle ❌ visibility
-    if (query.length > 0) {
-      clearBtn.classList.remove("hidden");
-    } else {
-      resetToNormal();
-      return;
-    }
+  // If input is empty → reset immediately
+  if (query.length === 0) {
+    resetToNormal();
+    return;
+  }
 
-    // Debounced API search
-    searchTimeout = setTimeout(() => {
-      fetch(`https://api.jikan.moe/v4/anime?q=${encodeURIComponent(query)}&limit=25`)
-        .then(res => res.json())
-        .then(data => {
-          const results = data.data || [];
-          if (window.renderSearchResults) {
-            window.renderSearchResults(results);
-          }
-        })
-        .catch(() => {
-          console.error("Search failed");
-        });
-    }, 400);
-  });
+  // Show ❌
+  clearBtn.classList.remove("hidden");
+
+  // Debounced API search
+  searchTimeout = setTimeout(() => {
+    fetch(`https://api.jikan.moe/v4/anime?q=${encodeURIComponent(query)}&limit=25`)
+      .then(res => res.json())
+      .then(data => {
+        const results = data.data || [];
+        if (window.renderSearchResults) {
+          window.renderSearchResults(results);
+        }
+      })
+      .catch(() => {
+        console.error("Search failed");
+      });
+  }, 400);
+});
 
   /* ================= CLEAR BUTTON ================= */
 
