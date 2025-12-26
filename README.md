@@ -3,7 +3,7 @@
 ## 📄 Project Information
 
 - **Name:** Subhashish Sahu  
-- **Roll Number:** _(Add your roll number here)_  
+- **Roll Number:** 125CS0071
 - **Project Topic:** AnimeVerse – Anime Exploration & Watchlist Web Application  
 
 ---
@@ -112,4 +112,4 @@ AnimeVerse does **not claim ownership** of any external content.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Subhashish-2007/animeverse.git
+   https://github.com/Subhashish-2007/animeverse
